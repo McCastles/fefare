@@ -1,4 +1,4 @@
-# Feature Face Recognition
+# Feature Face Recognition (Eigenfaces method)
 
 4th semester Individual Project in Python using NumPy, Pandas, OpenCV, sklearn, Tkinter
 
