@@ -1,15 +1,19 @@
 from eigenfaces import calculate_rates
-from scipy.spatial import distance
 import pandas as pd
 import math
 
+
+def _eucl(point, image_rates):
+    s = (point - image_rates).pow(2)
+    s = s.sum(axis=1)
+    return math.sqrt(s)
 
 def _multidim_knn(cd, image_rates):
     distance_from_chosen = []
     set_size = len(cd)
     for i in range(set_size):
         point = cd.iloc[i, 1:]
-        d = distance.euclidean(point, image_rates)
+        d = _eucl(point, image_rates)
         distance_from_chosen.append(d)
 
     distance_from_chosen = pd.DataFrame({"face_class": cd["face_class"], "distance_from_chosen": distance_from_chosen})

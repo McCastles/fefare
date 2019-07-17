@@ -1,7 +1,5 @@
-from tkinter import *
-from tkinter import font
-from tkinter import filedialog
-import FFR
+from tkinter import Button, Tk, END, Label, Entry, StringVar, RIDGE, font, filedialog
+from face_recognition import recognize
 import matplotlib.pyplot as plt
 
 dict_answer = {}
@@ -20,7 +18,7 @@ def go_event(rate_field, dict_answer_field, path_1, path_2):
         print(path_1)
         print(path_2)
         global dict_answer
-        dict_answer = FFR.main(path_1, path_2, part)
+        dict_answer = recognize(path_1, path_2, part)
         dict_answer_field.config(state='normal')
         dict_answer_field.delete(0, END)
         dict_answer_field.insert(0, dict_answer.get("verdict"))

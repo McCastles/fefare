@@ -4,7 +4,7 @@ import faceload
 import visualize as ve
 
 
-def main(training_path, test_path, part):
+def recognize(training_path, test_path, part):
 
     train_faces, classes_vector = faceload.load_images(training_path)
     test_face = faceload.load_image(image_path=test_path)
