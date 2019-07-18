@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import sklearn.preprocessing as sp
+from sklearn.preprocessing import scale
 
 
 def _calculate_pc(dev, ef_num):
@@ -17,7 +17,7 @@ def _calculate_pc(dev, ef_num):
 
 def calculate_rates(std_pc, dev):
     rates = std_pc.transpose().dot(dev)
-    rates = pd.DataFrame(sp.scale(rates))
+    rates = pd.DataFrame(scale(rates))
     return rates
 
 
@@ -25,6 +25,6 @@ def produce_eigenfaces(data, ef_num):
     mean = np.array(data.mean(axis=1)).astype('int')
     dev = data.sub(mean, axis=0)
     pc = _calculate_pc(dev, ef_num)
-    std_pc = pd.DataFrame(sp.scale(pc))
+    std_pc = pd.DataFrame(scale(pc))
     rates = calculate_rates(std_pc, dev)
     return std_pc, mean, rates

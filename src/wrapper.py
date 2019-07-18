@@ -1,10 +1,10 @@
 import argparse
 import sys
-from face_recognition import recognize
-import GUI
+from .GUI import launch_GUI
+from .face_recognition import recognize
 
 
-def wrap():
+def wrap(argv=None):
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
 
@@ -23,7 +23,7 @@ def wrap():
         sys.exit('FeFaRe 1.0.0 (R) McCastles')
 
     if opt_args.gui:
-        GUI.main()
+        launch_GUI()
     else:
         parser.add_argument('train_path', help='the path to the training set')
         parser.add_argument('test_path', help='the path to the test set')

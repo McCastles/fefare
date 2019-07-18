@@ -1,8 +1,8 @@
 import glob
 import os
-import cv2
 import pandas as pd
 import numpy as np
+from cv2 import imread
 from PIL import Image
 
 
@@ -14,7 +14,7 @@ def load_image(**kwargs):
         data = pd.DataFrame(dtype=float)
     image_path = kwargs.get("image_path")
 
-    pic = cv2.imread(image_path)
+    pic = imread(image_path)
     pic = pic[:, :, 0]
     if pic.shape[0] > 100 or pic.shape[1] > 100:
         pic = format_image(pic, pic.shape[0], pic.shape[1])

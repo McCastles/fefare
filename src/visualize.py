@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import sklearn.preprocessing as sp
+from sklearn.preprocessing import MinMaxScaler
 
 def prepare(test_face, image_rates, std_pc, mean):
 
@@ -18,7 +18,7 @@ def prepare(test_face, image_rates, std_pc, mean):
 
 
 def _pixelize(df):
-    new_img = pd.DataFrame(sp.MinMaxScaler().fit_transform(df))
+    new_img = pd.DataFrame(MinMaxScaler().fit_transform(df))
     new_img = (new_img * 255).astype('int')
     return new_img
 

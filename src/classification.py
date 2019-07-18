@@ -1,7 +1,6 @@
-from eigenfaces import calculate_rates
 import pandas as pd
 import math
-
+from .eigenfaces import calculate_rates
 
 def _eucl(point, image_rates):
     s = (point - image_rates).pow(2)

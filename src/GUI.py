@@ -1,6 +1,6 @@
 from tkinter import Button, Tk, END, Label, Entry, StringVar, RIDGE, font, filedialog
-from face_recognition import recognize
 import matplotlib.pyplot as plt
+from .face_recognition import recognize
 
 dict_answer = {}
 default_path_1 = './datasets/google_photos/training_set'
@@ -45,7 +45,7 @@ def browse(status_bar, image_needed):
     status_bar.config(state='readonly')
 
 
-def main():
+def launch_GUI():
     root = Tk()
     root.configure(background='white')
     root.geometry("1183x502")
@@ -112,4 +112,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    launch_GUI()
