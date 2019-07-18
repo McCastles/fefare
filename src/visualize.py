@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import sklearn.preprocessing as sp
 
-
 def prepare(test_face, image_rates, std_pc, mean):
 
     p_test = np.array(test_face).reshape(100, 100)
